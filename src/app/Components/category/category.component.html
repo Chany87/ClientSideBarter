@@ -1,0 +1,39 @@
+<div class="location">
+    <mat-card class="example-card"> 
+        <img mat-card-image src={{thisCategory.bigPicture}}> 
+        <div mat-card-avatar class="example-header-image"  style="background-image: url({{thisCategory.smallPicture}})">
+            
+        </div>
+        {{thisCategory.categoryName}}
+     </mat-card> 
+     <div class="menu">
+        <div class="menu1" >
+   
+        <button class="bottonMenu" (click)="showPublicationMembers()" >חברים בקהילה</button></div>
+        <div class="menu1" >
+        <button class="bottonMenu"(click)="showPublicationMembers()"  >פרסומים </button>
+        <button class="bottonPlus" (click)="openDialog()" >+</button>
+    </div>
+        </div>
+    </div>
+    <div class="logo" style="background-image:'url(/../../../assets/images/logo.gif)' ;"  routerLinkActive="active" routerLink="/hom/"></div>
+    
+    <div class="location">
+       
+        <mat-card class="example-card-bottom" *ngIf="show"> 
+            <div class="title">כל הפרסומים</div>
+           <br>
+            <hr> 
+            <div class="pic" *ngFor="let p of Publications" (click)="openPublication(p.publicationId)"> 
+                {{p.postTitle}}
+            </div>
+        </mat-card>
+        <mat-card class="example-card-bottom" *ngIf="!show"> 
+            <div class="title">כל החברים</div>
+           <br>
+            <hr> 
+            <div class="pic" *ngFor="let p of Publications" (click)="openPublication(p.publicationId)"> 
+                {{p.postTitle}}
+            </div>
+        </mat-card>
+    </div>  

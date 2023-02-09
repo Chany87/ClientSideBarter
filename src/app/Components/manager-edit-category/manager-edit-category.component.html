@@ -1,0 +1,32 @@
+  <!-- HTML template -->
+
+  <!-- <button class="bottonMenu" routerLinkActive="active" routerLink="/manageCategory" >הוספת קטגוריה</button> -->
+
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  
+    <ng-container matColumnDef="categoryName">
+      <th mat-header-cell *matHeaderCellDef> Category Name </th>
+      <td mat-cell *matCellDef="let category"> {{category.categoryName}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="bigPicture">
+      <th mat-header-cell *matHeaderCellDef> Big Picture </th>
+      <td mat-cell *matCellDef="let category"><img src="{{category.bigPicture}}" style="height: 100px;width: 150px;"> </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="smallPicture">
+      <th mat-header-cell *matHeaderCellDef> Small Picture </th>
+      <td mat-cell *matCellDef="let category"> <img src="{{category.smallPicture}}" style="height: 100px;width: 150px;" ></td>
+    </ng-container>
+    <br>
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef> Actions </th>
+      <td mat-cell *matCellDef="let category"> 
+        <button mat-raised-button color="primary" (click)="editCategory()">Edit</button> 
+      </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  

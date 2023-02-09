@@ -1,0 +1,39 @@
+<div  dir=rtl class="wrapper">
+    <div dir=rtl  class="background-image">
+    
+    </div>
+    
+    <div class="background-left">
+      <div class="center">
+      <div class="logo">
+      </div>
+       <h2>Log in</h2>
+       <span routerLinkActive="active" routerLink="/regist/">createAccount</span>
+    </div>
+    <form [formGroup]="connectUser">
+      <div appearance="fill" class="appearance">
+      <mat-label>Email</mat-label>
+      <input  type="email" formControlName="email" name="email" placeholder="אימל" >
+    </div>
+    <div appearance="fill" class="appearance">
+        <mat-label>password</mat-label>
+        <input  type="password" formControlName="password" name="password" placeholder="סיסמא">
+      </div>
+      <div appearance="fill" class="appearance">
+    <button mat-raised-button color="primary" (click)="connect()"  >Connect</button>
+</div>
+    </form>
+    </div>
+    </div>
+
+    
+
+
+
+
+    
+
+
+
+
+

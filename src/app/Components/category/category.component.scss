@@ -1,0 +1,77 @@
+.example-header-image {
+    border: 8px;
+    background-size: cover;
+    border-radius: 30px;
+    border: 14px rgb(255, 255, 255) solid;
+    margin-top: -107px;
+    position: absolute;
+    height: 150px;
+    width: 150px;
+    margin-left: 70%;
+    
+}
+
+.mat-card-image{
+  width: 103.5%;
+  height: 412px;
+  background-size: auto;
+  border: 1px black solid;
+  border-top: none;
+  }
+  .location{
+width: 60%;
+height:500px;
+margin:auto;
+border-radius: 0px 0px 15px 15px;
+  }
+  .mat-card{
+    border-radius: 0px 0px 15px 15px;
+    height: 550px;
+    font-family: rubik;
+    font-size: 15pt;
+    // padding-top: 50px;
+    text-align:center;
+    // padding-left: 3%;
+  }
+  
+  .example-card-bottom{
+    //border:1px rgb(0, 0, 0) solid;
+    border-radius: 15px;
+    height: 1400px;
+margin-top: 170px;
+border: 1px #888888 solid;
+  }
+  .bottonMenu{
+    border: none;
+    color:rgb(255, 255, 255);
+    font-family: rubik;
+    font-size: 18pt;
+    background-color:none;
+    // margin: 5px;
+   background-color:transparent;
+   margin: auto;
+   display: block;
+   margin-top: 50px;
+   color: black;
+   }
+   .menu{
+   // background-color: aqua;
+    float: left;
+    display: flex;
+width: 100%;
+   }
+   .menu1{
+    float: left;
+    width: 50%;
+
+   }
+   .bottonPlus{
+    display: block;
+    margin-top: -28px;
+    margin-left: 32%;
+    width: 6%;
+    height: 26px;
+    border: 1px black solid;
+    border-radius: 24px;
+    background-color:transparent;
+   }

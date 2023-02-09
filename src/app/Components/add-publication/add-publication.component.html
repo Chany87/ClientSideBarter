@@ -1,0 +1,54 @@
+<!-- <form class="example-form" dir=rtl >
+    <mat-form-field class="example-full-width">
+      <mat-label>כותרת פרסום</mat-label>
+      <input matInput placeholder="" value="">
+    </mat-form-field>
+  <br/>
+  <br/>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>הקלד כאן את תוכן הפרסום שלך</mat-label>
+      <textarea matInput placeholder="Ex. It makes me feel..."></textarea>
+    </mat-form-field>
+  </form>
+  <mat-form-field>
+    <mat-label>בחר קטגוריה</mat-label>
+    <mat-select [(value)]="selectedValue">
+      <mat-option *ngFor="let category of categories" [value]="categories">
+        {{category.categoryName}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <br/>
+  <br/>
+  <button mat-raised-button color="primary" (click)="Publish()">Publish</button> -->
+
+
+
+  
+
+ <form class="example-form" dir="rtl">
+  <mat-form-field class="example-full-width">
+    <mat-label>Title</mat-label>
+    <input matInput placeholder="Ex. Pizza" [(ngModel)]="publication.publicationContent">
+  </mat-form-field>
+  <br>
+  <br>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Content</mat-label>
+    <textarea matInput placeholder="Ex. It makes me feel..." [(ngModel)]="publication.publicationContent"></textarea>
+  </mat-form-field>
+</form>
+<mat-form-field>
+  <mat-label>Category</mat-label>
+  <mat-select [(value)]="publication.categoryIdNeed">
+    <mat-option *ngFor="let category of categories" [value]="categories">
+      {{category.categoryName}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+<br>
+<br>
+<button mat-raised-button color="primary" (click)="Publish(publication)">Publish</button>
+

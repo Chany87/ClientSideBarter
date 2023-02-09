@@ -1,0 +1,37 @@
+
+<!-- <div style="background-image: 'url(/../../assets/Pictures/Barter.jpg)'; 
+background-size:cover ;height: 150px;"></div> -->
+<div style="background-image: 'url(/../../assets/Pictures/HomePage.jpg)'; 
+background-size:cover ;height: 150px;">
+<div class="menu">
+  <button  *ngIf="!display" class="bottonMenu" routerLinkActive="active" routerLink="/SignUp" >הרשם</button>
+  <button *ngIf="!display" class="bottonMenu" routerLinkActive="active" routerLink="/Login" >התחבר </button>
+  <button *ngIf="!display" class="bottonMenu" routerLinkActive="active" routerLink="/ManagerMenu" >מנהל </button>
+  <button *ngIf="display" class="bottonMenu"  routerLinkActive="active" routerLink="/Profile" >{{CurrentUser.firstName+ " "+ CurrentUser.lastName}} </button>
+  <button class="bottonMenu" (click)="openDialog()"  >צור קשר</button>
+  <button  class="bottonMenu"  disabled=disabled   >ניהול </button>  </div>
+</div>
+  <div style="position: relative; 
+  background-color: white;
+  height: 500px;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+  margin-top: -50px;
+">
+<mat-card class="example-card" style="  height: 400px; width: 220px; margin-left: 50px; 
+"  >
+<mat-card-content>Simple card</mat-card-content>
+</mat-card>
+<div class="location">
+  <div *ngFor="let c of category" > 
+    <mat-card class="example-card"> 
+       <img mat-card-image src={{c.bigPicture}} alt="Photo of a Shiba Inu"> 
+       <div mat-card-avatar class="example-header-image"  style="background-image: url({{c.smallPicture}})">
+       </div>
+       <mat-card-subtitle> {{c.categoryName}}</mat-card-subtitle>
+       <button   mat-button class="buttonGoIn" (click)="showCategory(c.id)" >כנס</button>
+    </mat-card> 
+   </div>
+   </div>
+   </div>
+

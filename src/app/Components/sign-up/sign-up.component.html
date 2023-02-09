@@ -1,0 +1,57 @@
+<div  dir=rtl class="wrapper">
+  <div dir=rtl  class="background-image">
+  
+  </div>
+  
+  <div class="background-left">
+    <div class="center">
+    <div class="logo" style="background-image:'url(/../../assets/images/logo.gif)' ;"  routerLinkActive="active" routerLink="/hom/">
+     
+    </div>
+     <h2>יצירת חשבון</h2>
+     <span routerLinkActive="active" routerLink="/Login/">או התחבר</span>
+  </div>
+  <form [formGroup]="addUserForm">
+    <div appearance="fill" class="appearance">
+    <mat-label>Email</mat-label>
+    <input  type="email" formControlName="email" name="email">
+  </div>
+  <div appearance="fill" class="appearance">
+    <mat-label>סיסמא</mat-label>
+    <input  type="password" formControlName="password" name="password">
+  </div>
+  <div appearance="fill" class="appearance">
+    <mat-label>שם פרטי</mat-label>
+    <input  type="text" formControlName="firstName" name="firstName">
+  </div>
+  <div appearance="fill" class="appearance">
+    <mat-label>שם משפחה</mat-label>
+    <input  type="text" formControlName="lastName" name="lastName">
+  </div>
+  <div appearance="fill" class="appearance">
+    <mat-label>פלאפון</mat-label>
+    <input  type="text" formControlName="phoneNumber" name="phoneNumber">
+  </div>
+  <div appearance="fill" class="appearance">
+    <mat-label>במה אני יכול לתרום?</mat-label>
+   
+    <mat-select  (selectionChange)="selectionChange($event)" multiple name="allCategories" formControlName="allCategories" >
+      <mat-option *ngFor="let category of categoryList" [value]="category.id"> {{category.categoryName}}</mat-option>
+   </mat-select>
+  </div>
+  
+   
+  <div appearance="fill" class="appearance">
+    <mat-label>אזור מגורים</mat-label>
+    <mat-select disableRipple  type="text" formControlName="city"  name="city">
+      <mat-option *ngFor="let city of citiesList" [value]="city.id"> {{city.cityName}}</mat-option>
+    </mat-select>
+      <button mat-raised-button color="primary" (click)="addUser()" >צור חשבון</button>
+  
+  </div>
+  </form>
+  </div>
+  </div>
+
+
+
