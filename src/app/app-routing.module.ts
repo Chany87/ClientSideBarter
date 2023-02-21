@@ -6,6 +6,7 @@ import { HomePageComponent } from './Components/home-page/home-page.component';
 import { LogInComponent } from './Components/log-in/log-in.component';
 import { ManagerCategotyComponent } from './Components/manager-categoty/manager-categoty.component';
 import { ManagerEditCategoryComponent } from './Components/manager-edit-category/manager-edit-category.component';
+import { ManagerMasageComponent } from './Components/manager-masage/manager-masage.component';
 import { ManagerMenuComponent } from './Components/manager-menu/manager-menu.component';
 import { ManagerComponent } from './Components/manager/manager.component';
 import { ProfileComponent } from './Components/profile/profile.component';
@@ -21,8 +22,8 @@ const routes: Routes =
   {path:"ManagerMenu", component: ManagerMenuComponent},
     { path: "Manage", component: ManagerComponent }, 
        {path: "EditCategory", component: ManagerEditCategoryComponent},
-
-    { path: "manageCategory", component: ManagerCategotyComponent }
+    { path: "manageCategory", component: ManagerCategotyComponent },
+    {path:"ManageMasage", component:ManagerMasageComponent}
 
 
 

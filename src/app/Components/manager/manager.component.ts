@@ -15,6 +15,7 @@ export class ManagerComponent implements OnInit {
   categoriesInformation!:Category[];
   UserInformation! : user[];
   users!: user[];
+  star:number = 2
   dataSource!: MatTableDataSource<user>;
   displayedColumns: string[] = ['name', 'email', 'status', 'actions'];
 
@@ -37,14 +38,23 @@ export class ManagerComponent implements OnInit {
   this.userService.UpdateUser(user.id,user).subscribe((x)=>{
     alert(x)
   });
-  
-    }
+}
+AddStarUser(user: user) {
+    user.stars += this.star;
+    this.userService.UpdateUser(user.id, user).subscribe((x)=>{
+      alert(x)
+    });
+  }
+  RemoveStarUser(user: user) {
+    user.stars -=this.star
+    this.userService.UpdateUser(user.id, user).subscribe((x)=>{
+      alert(x)  
+    });
+  }
     applyFilter(filterValue: any) {
       this.dataSource.filter = filterValue.target.value.trim().toLowerCase();
     }
-   editUser(user: user) {
 
-  }
  
   
 }

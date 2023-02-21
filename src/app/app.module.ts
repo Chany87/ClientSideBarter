@@ -42,6 +42,8 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatTableDataSource } from '@angular/material/table';
 import { ManagerEditCategoryComponent } from './Components/manager-edit-category/manager-edit-category.component';
 import { ManagerMenuComponent } from './Components/manager-menu/manager-menu.component';
+import { UploadComponent } from './Components/upload/upload.component';
+import { ManagerMasageComponent } from './Components/manager-masage/manager-masage.component';
 
 
 @NgModule({
@@ -58,6 +60,8 @@ import { ManagerMenuComponent } from './Components/manager-menu/manager-menu.com
     ManagerCategotyComponent,
     ManagerEditCategoryComponent,
     ManagerMenuComponent,
+    UploadComponent,
+    ManagerMasageComponent,
     
     
   ],

@@ -19,15 +19,15 @@ export class ManagerCategotyComponent implements OnInit {
 
   
     this.categoryForm = this.formBuilder.group({
-      categoryName: ['', Validators.required],
+      categoryName: [null, [Validators.required, Validators.minLength(2)]],
       bigPicture: [''],
       smallPicture: ['']
     });
   }
 
   onSubmit() {
-    this.Category.AddCategory(this.categoryForm.value).subscribe(() => {
-      // Add success logic here
+    this.Category.AddCategory(this.categoryForm.value).subscribe((x) => {
+       alert(x)
     });
   }
 

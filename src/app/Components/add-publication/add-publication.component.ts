@@ -1,6 +1,8 @@
 import { Component, Inject, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Category } from 'src/app/Models/Category';
+import { CreatePublication } from 'src/app/Models/CreatePublication';
 import { Publication } from 'src/app/Models/Publication';
 import { CategoryService } from 'src/app/Services/Category/category.service';
 import { PublicationService } from 'src/app/Services/Publication/publication.service';
@@ -15,8 +17,10 @@ import { UserService } from 'src/app/Services/user.service';
   styleUrls: ['./add-publication.component.scss']
 })
 export class AddPublicationComponent implements OnInit {
-  selectedValue: any;
-  categories!: Category[];
+  addPublicationForm!: FormGroup
+  newPublication!:CreatePublication
+    selectedValue: any;
+    categories!: Category[];
   public publication: Publication = {
     publicationId: 0,
      userIdPublish:this.user.thisUser.id,
@@ -29,31 +33,56 @@ export class AddPublicationComponent implements OnInit {
     postTitle: '',
     
   };
-  
+
+  public dialogRef!: MatDialogRef<AddPublicationComponent>;
+  @Inject(MAT_DIALOG_DATA) public data: any
+
   constructor(private Publication: PublicationService, dialogRef: MatDialogRef<AddPublicationComponent>,
 
     private Category: CategoryService, private user : UserService) {}
 
   ngOnInit(): void {
-    this.publication.userIdPublish=this.user.thisUser.id;
-    console.log(this.publication)
-    this.Category.GetAllCategories().subscribe((x) => {
-      console.log(x)
-      this.categories = x
+
+    this.addPublicationForm=new FormGroup({
+      postTitle:new FormControl( "", Validators.required),
+      ifStar:new FormControl(false),
+      publicationContent:new FormControl( "", Validators.required),
+      
     })
   }
 
-  public dialogRef!: MatDialogRef<AddPublicationComponent>;
-  @Inject(MAT_DIALOG_DATA) public data: any
+  addPublish() {
 
-  Publish(publication: Publication) {
-    this.Publication.AddPublication(publication).subscribe(res => {
-      if (res) {
-        this.dialogRef.close();
-      }
-    
-})
-  }
+    this.newPublication= new CreatePublication(
+  //  this.addPublicationForm.value.publicationId = 
+      this.user.thisUser.id,
+  //  this.addPublicationForm.value.userIdReceived,
+    new Date(),
+    this.addPublicationForm.value.publicationContent,
+    this.addPublicationForm.value.ifStar,
+    2,
+    this.addPublicationForm.value.postTitle,
   
+  );
+
+  console.log(this.newPublication);
+ // this.dialogRef.close();
+
+
+
+//   this.Publication.AddPublication(this.newPublication).subscribe(res => {
+//     if (res) {
+
+//       this.dialogRef.close();
+//     }
+  
+// })
+ }
 
 }
+
+
+
+
+
+

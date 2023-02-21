@@ -1,5 +1,5 @@
-
-<!-- <div style="background-image: 'url(/../../assets/Pictures/Barter.jpg)'; 
+<!-- 
+<div style="background-image: 'url(/../../assets/Pictures/Barter.jpg)'; 
 background-size:cover ;height: 150px;"></div> -->
 <div style="background-image: 'url(/../../assets/Pictures/HomePage.jpg)'; 
 background-size:cover ;height: 150px;">
@@ -9,7 +9,7 @@ background-size:cover ;height: 150px;">
   <button *ngIf="!display" class="bottonMenu" routerLinkActive="active" routerLink="/ManagerMenu" >מנהל </button>
   <button *ngIf="display" class="bottonMenu"  routerLinkActive="active" routerLink="/Profile" >{{CurrentUser.firstName+ " "+ CurrentUser.lastName}} </button>
   <button class="bottonMenu" (click)="openDialog()"  >צור קשר</button>
-  <button  class="bottonMenu"  disabled=disabled   >ניהול </button>  </div>
+  <!-- <button  class="bottonMenu"  disabled=disabled   >ניהול </button>  </div> -->
 </div>
   <div style="position: relative; 
   background-color: white;

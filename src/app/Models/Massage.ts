@@ -4,4 +4,5 @@ UsreIdReceived:number;
 UserIdGiven:number;
 MassageDate:Date;
 MassageContent:string;
+image : string;
 } 
