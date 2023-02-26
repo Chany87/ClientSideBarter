@@ -2,17 +2,14 @@
  <form  dir=rtl [formGroup]="addPublicationForm">
 
   <div appearance="fill" class="appearance">
-    <!-- <mat-label>כותרת הפרסום </mat-label> -->
     <input  type="text" formControlName="postTitle" name="postTitle" placeholder="כותרת הפרסום">
   </div>
 <hr/>
   <div appearance="fill" class="appearance">
-    <!-- <mat-label></mat-label> -->
     <textarea formControlName="publicationContent" name="publicationContent" placeholder="הקלד כאן את תוכן הפרסום שלך "> </textarea>
   </div>
 
   <hr/>
-    <!-- <mat-radio-button formControlName="ifStar" name="ifStar" [value]="true" > האם אפשר להשתמש בכוכבים</mat-radio-button> -->
     <mat-checkbox class="example-margin"  formControlName="ifStar" name="ifStar" >Check me!</mat-checkbox>
     
   <button mat-raised-button color="primary" [disabled]="!addPublicationForm.valid" (click)="addPublish()" >שליחה </button>

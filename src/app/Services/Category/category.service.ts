@@ -26,7 +26,7 @@ export class CategoryService {
   }
 
   updateCategory(CategoryId :number, category :Category): Observable<boolean>{
-    return this.http.put<boolean>(C_API + `update/${CategoryId}` ,category);
+    return this.http.put<boolean>(C_API + `updateCategory/${CategoryId}` ,category);
   }
 
   deleteCategory(CategoryId: number) :Observable<boolean>{

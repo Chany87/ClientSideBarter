@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { AdminMessage } from 'src/app/Models/AdminMassage';
-import { AdminMassagesService } from 'src/app/Services/admin-massages.service';
+import { Message } from 'src/app/Models/Message';
+import { MessagesService } from 'src/app/Services/messages.service';
 const   api = "https://localhost:44321/";
 
 @Component({
@@ -10,13 +10,13 @@ const   api = "https://localhost:44321/";
   styleUrls: ['./manager-masage.component.scss']
 })
 export class ManagerMasageComponent implements OnInit {
-  public messages: AdminMessage[] = [];
+  public messages: Message[] = [];
   displayedColumns: string[] = ['userName', 'phone', 'messageContent', 'image', 'actions'];
 
-  constructor(private adminMassege: AdminMassagesService ) { }
+  constructor(private Message: MessagesService ) { }
 
   ngOnInit(): void {
-    this.adminMassege.GetAllMassesges().subscribe((x) => {
+    this.Message.GetAllMessages().subscribe((x) => {
       this.messages = x;
       alert(x)
 

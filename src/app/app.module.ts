@@ -21,7 +21,7 @@ import {MatCardModule} from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
 import { LogInComponent } from './Components/log-in/log-in.component';
 import { OpinionService } from './Services/Opinion/opinion.service';
-import { MassegeService } from './Services/Massege/massege.service';
+import { MessagesService } from './Services/messages.service'
 import { StarService } from './Services/star.service';
 import { PublicationService } from './Services/Publication/publication.service';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -44,6 +44,8 @@ import { ManagerEditCategoryComponent } from './Components/manager-edit-category
 import { ManagerMenuComponent } from './Components/manager-menu/manager-menu.component';
 import { UploadComponent } from './Components/upload/upload.component';
 import { ManagerMasageComponent } from './Components/manager-masage/manager-masage.component';
+import { PrivateAreaComponent } from './Components/private-area/private-area.component';
+import { ManagerAddMessageComponent } from './Components/manager-add-message/manager-add-message.component';
 
 
 @NgModule({
@@ -62,6 +64,8 @@ import { ManagerMasageComponent } from './Components/manager-masage/manager-masa
     ManagerMenuComponent,
     UploadComponent,
     ManagerMasageComponent,
+    PrivateAreaComponent,
+    ManagerAddMessageComponent,
     
     
   ],
@@ -100,7 +104,7 @@ import { ManagerMasageComponent } from './Components/manager-masage/manager-masa
     CategoryService,
     UserService,
     OpinionService,
-    MassegeService,
+    MessagesService,
     StarService,
     PublicationService
   ],

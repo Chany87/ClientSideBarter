@@ -5,6 +5,8 @@ background-size:cover ;height: 150px;"></div> -->
 background-size:cover ;height: 150px;">
 <div class="menu">
   <button  *ngIf="!display" class="bottonMenu" routerLinkActive="active" routerLink="/SignUp" >הרשם</button>
+  <button   class="bottonMenu" routerLinkActive="active" routerLink="/PrivateArea" >אזור אישי</button>
+
   <button *ngIf="!display" class="bottonMenu" routerLinkActive="active" routerLink="/Login" >התחבר </button>
   <button *ngIf="!display" class="bottonMenu" routerLinkActive="active" routerLink="/ManagerMenu" >מנהל </button>
   <button *ngIf="display" class="bottonMenu"  routerLinkActive="active" routerLink="/Profile" >{{CurrentUser.firstName+ " "+ CurrentUser.lastName}} </button>

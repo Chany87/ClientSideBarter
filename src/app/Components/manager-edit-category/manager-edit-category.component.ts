@@ -13,10 +13,11 @@ export class ManagerEditCategoryComponent implements OnInit {
 
   constructor(private Category: CategoryService,private formBuilder: FormBuilder ) {
     this.updateCategoryForm = this.formBuilder.group({
-      
+      categoryId: [''],
       categoryName: [''],
       bigPicture: [''],
       smallPicture: ['']
+
     });
    } 
   
@@ -24,8 +25,11 @@ export class ManagerEditCategoryComponent implements OnInit {
   // dataSource!: MatTableDataSource<any>;
   // displayedColumns: string[] = ['categoryName', 'bigPicture', 'smallPicture', 'actions'];
    updateCategoryForm!: FormGroup;
-  populateForm(category: { categoryName: any; bigPicture: any; smallPicture: any; }) {
+   updateCategoryId!: number
+   populateForm(category: { id: number, categoryName: any; bigPicture: any; smallPicture: any; }) {
+    this.updateCategoryId = category.id;
     this.updateCategoryForm.patchValue({
+      categoryId: category.id,
       categoryName: category.categoryName,
       bigPicture: category.bigPicture,
       smallPicture: category.smallPicture
@@ -43,17 +47,18 @@ export class ManagerEditCategoryComponent implements OnInit {
 
   updateCategory() {
     const updatedCategory = {
-      
+      id: this.updateCategoryForm.value.categoryId,
       categoryName: this.updateCategoryForm.value.categoryName,
       bigPicture: this.updateCategoryForm.value.bigPicture,
       smallPicture: this.updateCategoryForm.value.smallPicture
     };
-    
-  //   this.Category.updateCategory().subscribe(() => {
-  //     this.Category.updateCategory(updatedCategory, this.categories.id)
-  //     this.getCategories();
-  //   });
-    }
+  
+    this.Category.updateCategory(updatedCategory.id,updatedCategory ).subscribe(() => {
+      console.log(updatedCategory.id)
+      alert("Sucsses")
+    });
+  }
+  
   
 }
 

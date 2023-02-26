@@ -9,10 +9,12 @@ export class user {
         public lastName: string = '',
         public phoneNumber?: string, 
         public cityId?: number,
-       
         public allowingAccess?: 0|1|2,
-        public category_User?:CategoryUser
- 
+        public category_User?:CategoryUser,
+        public password:string='',
+        public categoryUsers:CategoryUser[]=[]
     ) { }
 }
+
+
 

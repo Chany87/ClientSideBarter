@@ -1,0 +1,93 @@
+.title{
+    position: relative; 
+    /* text-align: center; */
+    /* margin-top: 21px; */
+    font-size: 24pt;
+    /* margin-top: 28px; */
+    padding-top: 31px;
+
+}
+.edit{
+    
+    display: block;
+    float: right;
+    font-size: 20pt;
+    margin: auto;
+
+}
+.center{
+    width: 11%;
+    height: 50px;
+    margin: auto;
+    margin-top: 33px;
+}
+.background{
+    width: 100%;
+    height: 100%;
+    background-color: #f3fbfb;
+  }
+  .userProfile{
+    background-color: #ffffff;
+    border: 1px solid #bab4b4;
+    width: 85%;
+    height: 400px;
+    border-radius: 21px;
+    // position: relative;
+    float: right;
+    padding: 3%;
+    margin-top: 20px;
+  }
+ .loginDetails{
+    background-color: #ffffff;
+    border: 1px solid #bab4b4;
+    width: 85%;
+    height: 400px;
+    border-radius: 21px;
+    // position: relative;
+    float: right;
+    padding: 3%;
+    margin-top: 20px;
+ }
+  .userMessages{
+    background-color: #ffffff;
+    border: 1px solid #bab4b4;
+    width: 99%;
+    height: 233px;
+    border-radius: 21px;
+    // position: relative;
+    float: left;
+    padding: 3%;
+    margin-top: 20px;
+  }
+  .centerInput{
+    margin: auto;
+    width: 70%;
+  }
+  input{
+    width: 90%;
+    height: 28px;
+    border: none;
+    margin-top: 8px;
+    font-family: rubik;
+    border: solid black 1px;
+    margin: auto;
+    border-radius: 2px;
+    /* width: 85%; */
+    margin-top: 3px;
+    margin-bottom: 12px;
+
+ 
+  }
+  mat-label{
+   
+    font-family: rubik;
+   font-size: 12pt;
+  }
+  .rightInput{
+    width: 50%;
+    float: right;
+  }
+  .leftInput{
+    width: 50%;
+    float: left;
+  }

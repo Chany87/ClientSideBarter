@@ -11,10 +11,12 @@
     </button>
   </div>
 
-  <div *ngIf="updateCategoryForm.value.categoryName==category.categoryName && (updateCategoryForm.value.bigPicture || updateCategoryForm.value.smallPicture)">
+  <div *ngIf="updateCategoryForm.value.categoryId==category.id && (updateCategoryForm.value.bigPicture || updateCategoryForm.value.smallPicture)">
     <form [formGroup]="updateCategoryForm">
-      <mat-form-field>
-        <input matInput placeholder="Category Name" formControlName="categoryName ">
+      <input type="hidden" formControlName="categoryId">
+      <mat-form-field> 
+
+        <input matInput placeholder="Category Name" formControlName="categoryName">
       </mat-form-field>
       <mat-form-field>
         <div>

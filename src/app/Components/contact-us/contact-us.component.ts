@@ -2,8 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { MatDialogRef,MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { AdminMessage } from 'src/app/Models/AdminMassage';
-import { AdminMassagesService } from 'src/app/Services/admin-massages.service';
+import { Message } from 'src/app/Models/Message';
+import { MessagesService } from 'src/app/Services/messages.service';
 import { UserService } from 'src/app/Services/user.service';
 
 @Component({
@@ -18,7 +18,7 @@ export class ContactUsComponent implements OnInit {
 
   addMassage!: FormGroup
   
-  constructor(private http : HttpClient, private userService: UserService,dialogRef: MatDialogRef<ContactUsComponent>, private adminMessagesService: AdminMassagesService) { }
+  constructor(private http : HttpClient, private userService: UserService,@Inject(MAT_DIALOG_DATA) public data:any,public dialogRef: MatDialogRef<ContactUsComponent>, private MessagesService: MessagesService) { }
   ngOnInit(): void {
     this.addMassage=new FormGroup({
       firstName:new FormControl(this.userService.thisUser.firstName ),
@@ -30,22 +30,22 @@ export class ContactUsComponent implements OnInit {
   })
   }
 
-  
-  public dialogRef!: MatDialogRef<ContactUsComponent> 
-  @Inject(MAT_DIALOG_DATA) public data:any
 
-  newMassage!:AdminMessage;
+
+  newMassage!:Message;
   add(){
    
-     this.newMassage = new AdminMessage(
+     this.newMassage = new Message(
        this.addMassage.value.firstName,
+       1027,
        this.userService.thisUser.id,
        this.addMassage.value.phon,
        this.addMassage.value.massageContent,
-      this.response.dbPath
+      this.response.dbPath,
+      new Date()
        );
        console.log(this.newMassage)
-        this.adminMessagesService.AddAdminMessage(this.newMassage).subscribe((x) =>{
+        this.MessagesService.AddMessage(this.newMassage).subscribe((x) =>{
  
          console.log(x)
           this.dialogRef.close();

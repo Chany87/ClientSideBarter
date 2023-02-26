@@ -24,10 +24,10 @@ export class LogInComponent implements OnInit {
   connect() {
     this.userService.GetUserByEmailAndPassword(this.connectUser.value.email, this.connectUser.value.password)
       .subscribe((x) => {
-        alert(this.userService.thisUser)
+        // alert(this.userService.thisUser)
 
         this.userService.thisUser = x
-        alert(this.userService.thisUser)
+        // alert(this.userService.thisUser)
         console.log(x)
     
         this.router.navigate(['']);

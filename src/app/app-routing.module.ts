@@ -11,6 +11,7 @@ import { ManagerMenuComponent } from './Components/manager-menu/manager-menu.com
 import { ManagerComponent } from './Components/manager/manager.component';
 import { ProfileComponent } from './Components/profile/profile.component';
 import { SignUpComponent } from './Components/sign-up/sign-up.component';
+import { PrivateAreaComponent } from './Components/private-area/private-area.component';
 
 const routes: Routes =
   [{ path: "", component: HomePageComponent },
@@ -23,7 +24,8 @@ const routes: Routes =
     { path: "Manage", component: ManagerComponent }, 
        {path: "EditCategory", component: ManagerEditCategoryComponent},
     { path: "manageCategory", component: ManagerCategotyComponent },
-    {path:"ManageMasage", component:ManagerMasageComponent}
+    {path:"ManageMasage", component:ManagerMasageComponent},
+    {path:"PrivateArea", component: PrivateAreaComponent}
 
 
 
