@@ -18,9 +18,12 @@ export class HomePageComponent implements OnInit {
   showManager: boolean = false
 
   constructor(private categoryService: CategoryService, private routes: ActivatedRoute, private myRouter: Router,
-    public Dialog: MatDialog, MyRouter: Router, private userService: UserService) { }
-    CurrentUser : user = this.userService.thisUser
-    display : boolean = this.CurrentUser!=undefined
+    public Dialog: MatDialog, MyRouter: Router, private userService: UserService) {
+  }
+  CurrentUser: user | null = this.userService.getCurrentUser();
+  display: boolean = this.CurrentUser != undefined
+
+
 
   openDialog(): void {
     const dialogRef = this.Dialog.open(ContactUsComponent, {
@@ -54,6 +57,10 @@ export class HomePageComponent implements OnInit {
     console.log(id)
     this.myRouter.navigate(["Category", id]);
 
+  }
+  logOut() {
+    sessionStorage.removeItem("user");
+    this.CurrentUser = null;
   }
 }
 

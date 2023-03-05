@@ -25,11 +25,11 @@ export class LogInComponent implements OnInit {
     this.userService.GetUserByEmailAndPassword(this.connectUser.value.email, this.connectUser.value.password)
       .subscribe((x) => {
         // alert(this.userService.thisUser)
-
+        sessionStorage.setItem("user", JSON.stringify(x));
         this.userService.thisUser = x
         // alert(this.userService.thisUser)
         console.log(x)
-    
+
         this.router.navigate(['']);
 
         if (this.userService.thisUser.allowingAccess == 1) {

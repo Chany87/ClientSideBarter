@@ -4,12 +4,12 @@ background-size:cover ;height: 150px;"></div> -->
 <div style="background-image: 'url(/../../assets/Pictures/HomePage.jpg)'; 
 background-size:cover ;height: 150px;">
 <div class="menu">
-  <button  *ngIf="!display" class="bottonMenu" routerLinkActive="active" routerLink="/SignUp" >הרשם</button>
+  <button  *ngIf="!CurrentUser" class="bottonMenu" routerLinkActive="active" routerLink="/SignUp" >הרשם</button>
   <button   class="bottonMenu" routerLinkActive="active" routerLink="/PrivateArea" >אזור אישי</button>
-
-  <button *ngIf="!display" class="bottonMenu" routerLinkActive="active" routerLink="/Login" >התחבר </button>
-  <button *ngIf="!display" class="bottonMenu" routerLinkActive="active" routerLink="/ManagerMenu" >מנהל </button>
-  <button *ngIf="display" class="bottonMenu"  routerLinkActive="active" routerLink="/Profile" >{{CurrentUser.firstName+ " "+ CurrentUser.lastName}} </button>
+  <button *ngIf="CurrentUser" class="bottonMenu" routerLinkActive="active" (click)="logOut()" >התנתק </button>
+  <button *ngIf="!CurrentUser" class="bottonMenu" routerLinkActive="active" routerLink="/Login" >התחבר </button>
+  <button *ngIf="!CurrentUser" class="bottonMenu" routerLinkActive="active" routerLink="/ManagerMenu" >מנהל </button>
+  <button *ngIf="CurrentUser" class="bottonMenu"  routerLinkActive="active" routerLink="/Profile" >{{CurrentUser.firstName+ " "+ CurrentUser.lastName}} </button>
   <button class="bottonMenu" (click)="openDialog()"  >צור קשר</button>
   <!-- <button  class="bottonMenu"  disabled=disabled   >ניהול </button>  </div> -->
 </div>

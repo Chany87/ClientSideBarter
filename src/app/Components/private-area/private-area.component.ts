@@ -3,10 +3,12 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { MatSelectChange } from '@angular/material/select';
 import { Category } from 'src/app/Models/Category';
 import { City } from 'src/app/Models/City';
+import { Message } from 'src/app/Models/Message';
 import { user } from 'src/app/Models/User';
 import { UserCreateRequest } from 'src/app/Models/UserCreateRequest';
 import { CategoryService } from 'src/app/Services/Category/category.service';
 import { CityService } from 'src/app/Services/city.service';
+import { MessagesService } from 'src/app/Services/messages.service';
 import { UserService } from 'src/app/Services/user.service';
 
 @Component({
@@ -19,11 +21,11 @@ export class PrivateAreaComponent implements OnInit {
   citiesList!:City[];
   userInformation!:FormGroup;
   loginDetails!:FormGroup;
-  constructor(private userService:UserService,private cityService:CityService,private categoryService:CategoryService,) { }
+  constructor(private userService:UserService,private cityService:CityService,private categoryService:CategoryService,
+    private message: MessagesService) { }
 thisUser:user| null=null;
 cityUser!:City;
-
-
+messageList!:Message[]
 thisUserCreate!:UserCreateRequest;
 categoryList!:Category[];
 selectedCategories:number[]=[];
@@ -70,6 +72,12 @@ if(this.thisUser.cityId!=null){
       // console.log(this.categoryList)
       }
     )
+
+    this.message.GetMessageById(this.thisUser.id).subscribe((x) => {
+      this.messageList = x;
+    })
+   
+
   }
   userProfile!:FormGroup
   editing(){

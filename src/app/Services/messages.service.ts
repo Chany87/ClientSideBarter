@@ -18,8 +18,8 @@ export class MessagesService {
     return this.http.get<Message[]>(AD_API + "/GetAllMessages");
   }
   
-  GetMessageById(MessageId:number): Observable<Message>{
-    return this.http.get<Message>(AD_API + `/GatMessegeById/${MessageId}`);
+  GetMessageById(userId:number): Observable<Message[]>{
+    return this.http.get<Message[]>(AD_API + `/GetMessageById/${userId}`);
   }
   AddMessage(message:Message) : Observable<boolean>{
     debugger

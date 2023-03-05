@@ -1,62 +1,70 @@
 <p>private-area works!</p>
 <div class="background" dir="rtl">
-    <div class="center">
-    <span class="title">{{thisUser?.firstName}}  {{thisUser?.lastName}}</span>
+  <div class="center">
+    <span class="title">{{thisUser?.firstName}} {{thisUser?.lastName}}</span>
     <button class="edit" (click)="editing()"><mat-icon>edit</mat-icon></button>
-    </div>
-    <div class="centerInput">
-        <div class="rightInput">
-    <div class="userProfile">
+  </div>
+  <div class="centerInput">
+    <div class="rightInput">
+      <div class="userProfile">
         <form [formGroup]="userInformation">
-          
+
           <h2>עריכת משתמש:</h2>
-          
-            <div appearance="fill" class="appearance">
-              <mat-label>שם פרטי</mat-label>
-              <input type="text" formControlName="firstName" name="firstName">
-            </div>
-            <div appearance="fill" class="appearance">
-              <mat-label>שם משפחה</mat-label>
-              <input type="text" formControlName="lastName" name="lastName">
-            </div>
-            <div appearance="fill" class="appearance">
-              <mat-label>פלאפון </mat-label>
-              <input type="text" formControlName="phon" name="phon">
-            </div>
-              <mat-label>אזור מגורים</mat-label>
-      <mat-select disableRipple  type="text" formControlName="city"  name="city">
-        <mat-option *ngFor="let city of citiesList" [value]="city.id"> {{city.cityName}}</mat-option>
-      </mat-select>
-      <div appearance="fill" class="appearance">
-        <mat-label>במה אני יכול לתרום?</mat-label>
-       
-        <mat-select   (selectionChange)="selectionChange($event)" multiple name="allCategories" formControlName="allCategories" >
-          <mat-option *ngFor="let category of categoryList" [value]="category.id"> {{category.categoryName}}</mat-option>
-       </mat-select>
-    </div>
+
+          <div appearance="fill" class="appearance">
+            <mat-label>שם פרטי</mat-label>
+            <input type="text" formControlName="firstName" name="firstName">
+          </div>
+          <div appearance="fill" class="appearance">
+            <mat-label>שם משפחה</mat-label>
+            <input type="text" formControlName="lastName" name="lastName">
+          </div>
+          <div appearance="fill" class="appearance">
+            <mat-label>פלאפון </mat-label>
+            <input type="text" formControlName="phon" name="phon">
+          </div>
+          <mat-label>אזור מגורים</mat-label>
+          <mat-select disableRipple type="text" formControlName="city" name="city">
+            <mat-option *ngFor="let city of citiesList" [value]="city.id"> {{city.cityName}}</mat-option>
+          </mat-select>
+          <div appearance="fill" class="appearance">
+            <mat-label>במה אני יכול לתרום?</mat-label>
+
+            <mat-select (selectionChange)="selectionChange($event)" multiple name="allCategories"
+              formControlName="allCategories">
+              <mat-option *ngFor="let category of categoryList" [value]="category.id">
+                {{category.categoryName}}</mat-option>
+            </mat-select>
+          </div>
         </form>
-    </div>
-    <div class="loginDetails">
+      </div>
+      <div class="loginDetails">
         <h2>עריכת פרטי היתחברות:</h2>
         <form [formGroup]="loginDetails">
-            <div appearance="fill" class="appearance">
-                <mat-label>Email</mat-label>
-                <input  type="email" formControlName="email" name="email">
-              </div>
-              <div appearance="fill" class="appearance">
-                <mat-label>סיסמא</mat-label>
-                <input  type="text" formControlName="password" name="password">
-              </div>
+          <div appearance="fill" class="appearance">
+            <mat-label>Email</mat-label>
+            <input type="email" formControlName="email" name="email">
+          </div>
+          <div appearance="fill" class="appearance">
+            <mat-label>סיסמא</mat-label>
+            <input type="text" formControlName="password" name="password">
+          </div>
         </form>
-    </div>
+      </div>
     </div>
     <div class="leftInput">
-    <div class="userMessages">
+      <div class="userMessages">
         <h2>הודעות מנהל:</h2>
+        <div *ngFor="let message of messageList">
+          {{message.messageContent}}
+          {{message.messageDate| date:'shortDate'}} {{message.messageDate | date: 'shortTime'}}
+        </div>
+      </div>
+      <div class="userMessages">
+        <h2> פרסומים שפרסמתי:</h2>
+      </div>
     </div>
-    <div class="userMessages"> <h2> פרסומים שפרסמתי:</h2></div>
-    </div>
-    </div>
-    </div>
-    
-    <button (click)="aaa()"></button>
+  </div>
+</div>
+
+<button (click)="aaa()"></button>

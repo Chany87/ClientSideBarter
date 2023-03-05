@@ -20,10 +20,11 @@ export class ContactUsComponent implements OnInit {
   
   constructor(private http : HttpClient, private userService: UserService,@Inject(MAT_DIALOG_DATA) public data:any,public dialogRef: MatDialogRef<ContactUsComponent>, private MessagesService: MessagesService) { }
   ngOnInit(): void {
+    const user=this.userService.getCurrentUser();
     this.addMassage=new FormGroup({
-      firstName:new FormControl(this.userService.thisUser.firstName ),
-      lastName:new FormControl(this.userService.thisUser.lastName),
-      phon:new FormControl(this.userService.thisUser.phoneNumber),
+      firstName:new FormControl(user?.firstName ),
+      lastName:new FormControl(user?.lastName),
+      phon:new FormControl(user?.phoneNumber),
       massageContent:new FormControl( ),
       picture: new FormControl(),
 
@@ -36,10 +37,8 @@ export class ContactUsComponent implements OnInit {
   add(){
    
      this.newMassage = new Message(
-       this.addMassage.value.firstName,
        1027,
        this.userService.thisUser.id,
-       this.addMassage.value.phon,
        this.addMassage.value.massageContent,
       this.response.dbPath,
       new Date()

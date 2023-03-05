@@ -12,40 +12,42 @@ const U_API = environment.apiUrl + '/User/';
   providedIn: 'root'
 })
 export class UserService {
-  SiteManager:boolean=false
-  ifUser:boolean=false
-  thisUser!:user
-  users!:user[];
-  
-  constructor(private Http:HttpClient) { }
+  SiteManager: boolean = false
+  ifUser: boolean = false
+  thisUser!: user
+  users!: user[];
 
-  GetAllUsers(): Observable<user[]>{
+  constructor(private Http: HttpClient) { }
+
+  getCurrentUser():user{
+    return JSON.parse(sessionStorage.getItem("user")!);
+  }
+
+  GetAllUsers(): Observable<user[]> {
     return this.Http.get<user[]>(U_API + "GetAllUsers");
   }
 
-  GetUserById(UserId:number): Observable<user>{
-  
-    return this.Http.get<user>(U_API + `UserById/${UserId}`);
+  GetUserById(userId: number): Observable<user> {
+    return this.Http.get<user>(U_API + `GetUserById/${userId}`);
   }
-  GetUserByEmailAndPassword(Email:string,Password :string): Observable<user>{
+  GetUserByEmailAndPassword(Email: string, Password: string): Observable<user> {
+    return this.Http.get<user>(U_API + `GetUserByEmailAndPassword/${Email}/${Password}`);
 
-    return  this.Http.get<user>(U_API + `GetUserByEmailAndPassword/${Email}/${Password}`);
- 
-    }
-    GetUserByEmail(Email:string): Observable<user>{
-      return this.Http.get<user>(U_API + `GetUserByEmail/${Email}`);
-     
-    }
+  }
+  GetUserByEmail(Email: string): Observable<user> {
+    return this.Http.get<user>(U_API + `GetUserByEmail/${Email}`);
 
-  AddUser(user:UserCreateRequest) : Observable<user>{
+  }
+
+  AddUser(user: UserCreateRequest): Observable<user> {
     return this.Http.post<user>(U_API + "AddUser", user);
   }
 
-  UpdateUser(userId: number, user:user) :Observable<boolean>{
+  UpdateUser(userId: number, user: user): Observable<boolean> {
     return this.Http.put<boolean>(U_API + `update/${userId}`, user);
   }
 
-  deleteUser(userId:number):Observable<boolean>{
+  deleteUser(userId: number): Observable<boolean> {
     return this.Http.delete<boolean>(U_API + "DeleteUser")
   }
 
