@@ -22,7 +22,6 @@ export class MessagesService {
     return this.http.get<Message[]>(AD_API + `/GetMessageById/${userId}`);
   }
   AddMessage(message:Message) : Observable<boolean>{
-    debugger
     return this.http.post<boolean>(AD_API + "/AddMessage", message);
   }
 

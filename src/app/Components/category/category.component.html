@@ -1,4 +1,4 @@
-<div class="location">
+<div class="location" *ngIf="thisCategory">
     <mat-card class="example-card"> 
         <img mat-card-image src={{thisCategory.bigPicture}}> 
         <div mat-card-avatar class="example-header-image"  style="background-image: url({{thisCategory.smallPicture}})">
@@ -24,16 +24,26 @@
             <div class="title">כל הפרסומים</div>
            <br>
             <hr> 
-            <div class="pic" *ngFor="let p of Publications" (click)="openPublication(p.publicationId)"> 
+            <div class="pic" *ngFor="let p of Publications" (click)="openPublication(p.publicationId)" style="height: auto;"> 
                 {{p.postTitle}}
+                <div class="star" [ngStyle]="{'color': p.ifStar == true ? 'yellow' : 'gray'}">&#9733;</div>
+                <br>
+                <div style="display: none;" id={{p.publicationId}}>
+                    <hr>
+                    {{p.publicationContent}}
+                </div>
             </div>
-        </mat-card>
-        <mat-card class="example-card-bottom" *ngIf="!show"> 
-            <div class="title">כל החברים</div>
-           <br>
-            <hr> 
-            <div class="pic" *ngFor="let p of Publications" (click)="openPublication(p.publicationId)"> 
-                {{p.postTitle}}
-            </div>
-        </mat-card>
-    </div>  
+        
+    </mat-card> -
+     <mat-card class="example-card-bottom" *ngIf="showMembers">
+        <div class="title">כל החברים</div>
+        <br>
+        <hr>
+        <div id="2" class="pic" *ngFor="let m of Members">
+            <span (click)="openPublication(m.UserId)"> {{m.user.firstName}} {{m.user.lastName}} </span> 
+            <i class="fa fa-envelope" style="font-size:24px"></i>
+          <mat-icon class="envelope" (click)="sendMssege()"> email</mat-icon> 
+
+       </div> 
+    </mat-card>
+</div>

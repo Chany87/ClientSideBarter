@@ -22,6 +22,7 @@ export class HomePageComponent implements OnInit {
   }
   CurrentUser: user | null = this.userService.getCurrentUser();
   display: boolean = this.CurrentUser != undefined
+  
 
 
 
@@ -53,7 +54,6 @@ export class HomePageComponent implements OnInit {
   }
 
   showCategory(id: Number) {
-    debugger
     console.log(id)
     this.myRouter.navigate(["Category", id]);
 

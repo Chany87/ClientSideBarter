@@ -52,7 +52,6 @@ if(this.thisUser.cityId!=null){
       allCategories:new FormControl(this.thisUser.categoryUsers?.map(item=>item.Id))
 
     })
-    debugger
  //פרטי היתחברות
     console.log(this.thisUser)
     this.loginDetails=new FormGroup({
@@ -84,7 +83,6 @@ if(this.thisUser.cityId!=null){
 
   }
   selectionChange(event:MatSelectChange){
-    debugger
     this.selectedCategories=event.value;
     
   }

@@ -18,12 +18,12 @@ import { UserService } from 'src/app/Services/user.service';
 })
 export class AddPublicationComponent implements OnInit {
   addPublicationForm!: FormGroup
-  newPublication!:CreatePublication
-    selectedValue: any;
-    categories!: Category[];
+  newPublication!: Publication
+  selectedValue: any;
+  categories!: Category[];
   public publication: Publication = {
     publicationId: 0,
-     userIdPublish:this.user.thisUser.id,
+    userIdPublish: this.user.getCurrentUser().id,
     publicationDate: new Date(),
     closingDate: undefined,
     publicationContent: '',
@@ -31,53 +31,50 @@ export class AddPublicationComponent implements OnInit {
     categoryIdNeed: 0,
     userIdReceived: 0,
     postTitle: '',
-    
-  };
 
-  public dialogRef!: MatDialogRef<AddPublicationComponent>;
+  };
   @Inject(MAT_DIALOG_DATA) public data: any
 
-  constructor(private Publication: PublicationService, dialogRef: MatDialogRef<AddPublicationComponent>,
+  constructor(private Publication: PublicationService, private dialogRef: MatDialogRef<AddPublicationComponent>,
 
-    private Category: CategoryService, private user : UserService) {}
+    private Category: CategoryService, private user: UserService) { }
 
   ngOnInit(): void {
 
-    this.addPublicationForm=new FormGroup({
-      postTitle:new FormControl( "", Validators.required),
-      ifStar:new FormControl(false),
-      publicationContent:new FormControl( "", Validators.required),
-      
+    this.addPublicationForm = new FormGroup({
+      postTitle: new FormControl("", Validators.required),
+      ifStar: new FormControl(false),
+      publicationContent: new FormControl("", Validators.required),
+
     })
   }
 
   addPublish() {
 
-    this.newPublication= new CreatePublication(
-  //  this.addPublicationForm.value.publicationId = 
-      this.user.thisUser.id,
-  //  this.addPublicationForm.value.userIdReceived,
-    new Date(),
-    this.addPublicationForm.value.publicationContent,
-    this.addPublicationForm.value.ifStar,
-    2,
-    this.addPublicationForm.value.postTitle,
-  
-  );
+    this.newPublication = new Publication(
+      //  this.addPublicationForm.value.publicationId = 
+      this.user.getCurrentUser().id,
+      //  this.addPublicationForm.value.userIdReceived,
+      new Date(),
+      this.addPublicationForm.value.publicationContent,
+      this.addPublicationForm.value.ifStar,
+      2,
+      this.addPublicationForm.value.postTitle,
 
-  console.log(this.newPublication);
- // this.dialogRef.close();
+    );
+
+    console.log(this.newPublication);
+    // this.dialogRef.close();
 
 
 
-//   this.Publication.AddPublication(this.newPublication).subscribe(res => {
-//     if (res) {
+    this.Publication.AddPublication(this.newPublication).subscribe(res => {
+      if (res) {
+        this.dialogRef.close();
+      }
 
-//       this.dialogRef.close();
-//     }
-  
-// })
- }
+    })
+  }
 
 }
 

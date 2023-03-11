@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { CategoryUser } from 'src/app/Models/CategoryUser';
 import { environment } from 'src/environments/environment';
 import { Category } from '../../Models/Category';
 
@@ -32,4 +33,6 @@ export class CategoryService {
   deleteCategory(CategoryId: number) :Observable<boolean>{
     return  this.http.delete<boolean>(C_API + "DeleteCategory");
   }
+
+ 
 }

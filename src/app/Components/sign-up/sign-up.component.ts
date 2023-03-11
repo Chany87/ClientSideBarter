@@ -62,7 +62,6 @@ export class SignUpComponent implements OnInit {
 
 
   selectionChange(event: MatSelectChange) {
-    debugger
     this.selectedCategories = event.value;
 
   }
@@ -77,7 +76,6 @@ export class SignUpComponent implements OnInit {
       this.addUserForm.value.city,
       this.selectedCategories,
     );
-    debugger
     console.log(this.newUser);
     this.UserService.AddUser(this.newUser).subscribe((x) => {
       console.log(x);

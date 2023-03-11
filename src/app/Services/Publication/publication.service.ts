@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import {Observable} from 'rxjs';
 import { Publication } from 'src/app/Models/Publication';
-const P_API = environment.apiUrl;
+const P_API = environment.apiUrl+'/Publication/';
 @Injectable({
   providedIn: 'root'
 })
