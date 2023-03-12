@@ -5,14 +5,16 @@ background-size:cover ;height: 150px;"></div> -->
 background-size:cover ;height: 150px;">
 <div class="menu">
   <button  *ngIf="!CurrentUser" class="bottonMenu" routerLinkActive="active" routerLink="/SignUp" >הרשם</button>
-  <button   class="bottonMenu" routerLinkActive="active" routerLink="/PrivateArea" >אזור אישי</button>
+  <!-- <button  *ngIf="CurrentUser != null" class="bottonMenu" routerLinkActive="active" routerLink="/PrivateArea" >אזור אישי</button> -->
   <button *ngIf="CurrentUser" class="bottonMenu" routerLinkActive="active" (click)="logOut()" >התנתק </button>
   <button *ngIf="!CurrentUser" class="bottonMenu" routerLinkActive="active" routerLink="/Login" >התחבר </button>
   <button *ngIf="CurrentUser?.allowingAccess ==1" class="bottonMenu" routerLinkActive="active" routerLink="/ManagerMenu" >מנהל </button>
-  <button *ngIf="CurrentUser" class="bottonMenu"  routerLinkActive="active" routerLink="/Profile" >{{CurrentUser.firstName+ " "+ CurrentUser.lastName}} </button>
+  <button *ngIf="CurrentUser != null" class="bottonMenu" routerLinkActive="active" routerLink="/PrivateArea" >{{CurrentUser.firstName+ " "+ CurrentUser.lastName}} </button>
   <button class="bottonMenu" (click)="openDialog()"  >צור קשר</button>
   <!-- <button  class="bottonMenu"  disabled=disabled   >ניהול </button>  </div> -->
 </div>
+
+
   <div style="position: relative; 
   background-color: white;
   height: 500px;

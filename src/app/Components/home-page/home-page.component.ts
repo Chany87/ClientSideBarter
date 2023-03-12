@@ -22,8 +22,6 @@ export class HomePageComponent implements OnInit {
   }
   CurrentUser: user | null = this.userService.getCurrentUser();
   display: boolean = this.CurrentUser != undefined
-  
-
 
 
   openDialog(): void {

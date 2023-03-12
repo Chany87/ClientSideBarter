@@ -48,6 +48,7 @@ import { PrivateAreaComponent } from './Components/private-area/private-area.com
 import { ManagerAddMessageComponent } from './Components/manager-add-message/manager-add-message.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,

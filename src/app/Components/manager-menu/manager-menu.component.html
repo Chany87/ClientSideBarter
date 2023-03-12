@@ -1,10 +1,32 @@
-<p>manager-menu works!</p>
 
-
+<!-- 
 <button class="bottonMenu" routerLinkActive="active" routerLink="/Manage" >עריכת משתמשים</button>
 
 
 
 <button class="bottonMenu" routerLinkActive="active" routerLink="/EditCategory" >עריכת קטגוריות</button>
 
-<button class="bottonMenu" routerLinkActive="active" routerLink="/ManageMasage" >ManageMasage</button>
+<button class="bottonMenu" routerLinkActive="active" routerLink="/ManageMasage" >ManageMasage</button> -->
+
+<main>
+  <mat-tab-group>
+    <mat-tab label="עריכת משתמשים">
+      <button mat-button routerLinkActive="active" routerLink="/Manage">
+        <mat-icon>edit</mat-icon>
+        עריכת משתמשים
+      </button>
+    </mat-tab>
+    <mat-tab label="עריכת קטגוריות">
+      <button mat-button routerLinkActive="active" routerLink="/EditCategory">
+        <mat-icon>edit</mat-icon>
+        עריכת קטגוריות
+      </button>
+    </mat-tab>
+    <mat-tab label="ManageMasage">
+      <button mat-button routerLinkActive="active" routerLink="/ManageMasage">
+        <mat-icon>message</mat-icon>
+        ManageMasage
+      </button>
+    </mat-tab>
+  </mat-tab-group>
+</main>
